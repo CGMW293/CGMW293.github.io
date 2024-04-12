@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100vh;
+    overflow: hidden;
     background-color: rgb(0, 0, 0); /* Initial background color */
     animation: colorCycle 20s infinite; /* Apply animation to the entire page */
 }
