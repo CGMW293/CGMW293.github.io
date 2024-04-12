@@ -7,7 +7,7 @@ let particles = [];
 let mouse = {
     x: null,
     y: null,
-    radius: 100 // Increase or decrease the effect radius as needed
+    radius: 150 // Increase or decrease the effect radius as needed
 }
 
 window.addEventListener('mousemove', function(event) {
@@ -15,7 +15,7 @@ window.addEventListener('mousemove', function(event) {
     mouse.y = event.y;
 });
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 200; i++) {
     particles.push({
         x: Math.random() * w,
         y: Math.random() * h,
