@@ -11,13 +11,13 @@
         ::-webkit-scrollbar {
         display: none;
         }
-    
+
         /* Hide scrollbar for IE, Edge and Firefox */
         html {
             -ms-overflow-style: none; /* IE and Edge */
             scrollbar-width: none; /* Firefox */
         }
-    
+
         /* Apply Rubik font to body */
         body {
             font-family: 'Rubik', sans-serif;
@@ -29,16 +29,16 @@
         }
         /* Style for the image */
         #deer-image {
-            position: absolute;
-            top: 20%;  /* adjusted from a fixed pixel value */
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
+            width: 100%; /* Adjust width to make responsive */
+            max-width: 500px; /* Max width to control image size */
+            margin: 400px auto 0; /* Add top margin to push the image down, center it horizontally */
         }
 
         /* Style for the content below the image */
         #content {
-            margin-top: 50vh; /* Use viewport height (vh) instead of a fixed pixel value */
-            padding-bottom: 100px; /* Add padding at the bottom to make space for the fixed footer */
+            position: relative; /* Positioning relative to its normal flow */
+            padding-top: 40px; /* Space below the image */
         }
     </style>
     
@@ -48,7 +48,7 @@
     <img id="deer-image" src="sources/Deer.png" alt="Deer">
     <div id="content">
         <h1>Welcome to CGMW293</h1>
-        <p style="margin-bottom: 200px;">Fix this shit later</p>
+        <p style="margin-bottom: 200px;">Fix this later</p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
