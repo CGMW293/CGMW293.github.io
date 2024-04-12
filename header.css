@@ -1,0 +1,74 @@
+/* General page style */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: rgb(0, 0, 0); /* Initial background color */
+    animation: colorCycle 20s infinite; /* Apply animation to the entire page */
+}
+
+/* Define the color animation */
+@keyframes colorCycle {
+    0%, 100% {
+        background-color: rgb(0, 0, 0); /* Dark color */
+    }
+    50% {
+        background-color: rgb(15, 15, 15); /* Slightly lighter dark color */
+    }
+}
+
+/* Navbar styling */
+#navbar {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    background-color: black; /* Initial background color */
+    color: white;
+    transition: top 0.3s;
+    z-index: 1;
+    animation: colorCycle 20s infinite; /* Apply the same animation as the page background */
+}
+
+/* Navbar list style */
+#navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Navbar items */
+#navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Navbar links */
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+/* Hover area to trigger navbar display */
+#hover-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Adjust height as necessary */
+    z-index: 2;
+    background-color: transparent; /* Invisible but functional */
+}
+
+/* Show navbar on hover */
+#hover-area:hover + #navbar,
+#navbar:hover {
+    top: 0;
+}
+
+/* Ensure the navbar is visible over the content */
+#navbar {
+    z-index: 3;
+}
