@@ -18,13 +18,20 @@ html, body {
     }
 }
 
+#space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Set z-index to 0 */
+}
+
 /* Navbar styling */
 #navbar {
     position: fixed;
     top: -50px;
     left: 0;
     width: 100%;
-    background-color: black; /* Initial background color */
+    background-color: transparent; /* Transparent background */
     color: white;
     transition: top 0.3s;
     z-index: 1;
@@ -60,13 +67,14 @@ html, body {
     width: 100%;
     height: 50px; /* Adjust height as necessary */
     z-index: 2;
-    background-color: transparent; /* Invisible but functional */
+    background-color: transparent; /* Transparent background */
 }
 
 /* Show navbar on hover */
 #hover-area:hover + #navbar,
 #navbar:hover {
     top: 0;
+    background-color: transparent; /* Ensure navbar remains transparent when shown */
 }
 
 /* Ensure the navbar is visible over the content */
