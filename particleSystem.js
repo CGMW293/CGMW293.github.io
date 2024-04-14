@@ -3,14 +3,15 @@ const ctx = canvas.getContext('2d');
 
 let w = canvas.width = window.innerWidth;
 let h = canvas.height = window.innerHeight;
-let particles = [];
-let mouse = {
+const particles = [];
+
+const mouse = {
     x: null,
     y: null,
-    radius: 150 // Increase or decrease the effect radius as needed
-}
+    radius: 150
+};
 
-window.addEventListener('mousemove', function(event) {
+window.addEventListener('mousemove', event => {
     mouse.x = event.x;
     mouse.y = event.y;
 });
@@ -25,45 +26,38 @@ for (let i = 0; i < 200; i++) {
     });
 }
 
+function drawParticle(particle) {
+    ctx.moveTo(particle.x, particle.y);
+    ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+}
+
 function draw() {
     ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
     ctx.beginPath();
-    particles.forEach(p => {
-        ctx.moveTo(p.x, p.y);
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
-    });
+    particles.forEach(drawParticle);
     ctx.fill();
-    update();
+    updateParticles();
 }
 
-function update() {
-    particles.forEach(p => {
-        let dx = p.x - mouse.x;
-        let dy = p.y - mouse.y;
+function updateParticles() {
+    particles.forEach(particle => {
+        let dx = particle.x - mouse.x;
+        let dy = particle.y - mouse.y;
         let distance = Math.sqrt(dx * dx + dy * dy);
-        let forceDirectionX = dx / distance;
-        let forceDirectionY = dy / distance;
-        let maxDistance = mouse.radius;
-        let force = (maxDistance - distance) / maxDistance;
-        let directionX = forceDirectionX * force * 5;
-        let directionY = forceDirectionY * force * 5;
-
         if (distance < mouse.radius) {
-            p.x += directionX;
-            p.y += directionY;
+            let force = (mouse.radius - distance) / mouse.radius;
+            let forceMagnitude = Math.pow(force, 2) * 5; // Using square to smooth the force effect
+            particle.x += dx / distance * forceMagnitude;
+            particle.y += dy / distance * forceMagnitude;
         } else {
-            if (p.x !== p.vx) {
-                p.x += p.vx;
-            }
-            if (p.y !== p.vy) {
-                p.y += p.vy;
-            }
+            particle.x += particle.vx;
+            particle.y += particle.vy;
         }
 
         // Reflect particles off canvas edges
-        if (p.x <= 0 || p.x >= w) p.vx = -p.vx;
-        if (p.y <= 0 || p.y >= h) p.vy = -p.vy;
+        if (particle.x <= 0 || particle.x >= w) particle.vx = -particle.vx;
+        if (particle.y <= 0 || particle.y >= h) particle.vy = -particle.vy;
     });
 }
 
@@ -73,4 +67,4 @@ function resize() {
 }
 
 window.addEventListener('resize', resize);
-setInterval(draw, 1000/60);
+setInterval(draw, 1000 / 60);

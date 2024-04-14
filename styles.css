@@ -1,0 +1,98 @@
+/* Image slider container */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    padding-top: 50px; /* Add padding to create space for the text */
+    height: auto;
+    overflow: hidden;
+    border: 0px solid rgb(0, 0, 0);
+    box-shadow: 0 0px 0px rgba(99, 95, 95, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+/* Container for slides */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    min-width: 100%; /* Ensure it covers the full area of .slider */
+}
+
+/* Styling for each image */
+.slides img {
+    max-width: 100%; /* Maximum width of images */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Display as block to avoid extra space */
+    margin: auto; /* Center images horizontally */
+}
+
+/* Styling for navigation arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10; /* Make sure arrows are visible on top of images */
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.slider:hover .arrow {
+    opacity: 0.7;
+}
+
+
+
+
+/* General page style */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: rgb(0, 0, 0); /* Initial background color */
+}
+
+
+#space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Set z-index to 0 */
+}
+
+/* Style for the content below the image */
+#content {
+    padding-top: 200px; /* Adjust this value based on the image height */
+    padding-bottom: 100px; /* Add padding at the bottom to make space for the fixed footer */
+    overflow-y: auto; /* Enable vertical scrolling for content overflow */
+}
+
+
+
+/* Temp text move css */
+.movable {
+    position: relative;
+    left: 0; /* Initial horizontal position */
+    transition: left 0.5s ease; /* Smooth transition for movement */
+ }
+
+ .movable:hover {
+    left: 100px; /* Move 100px to the right on hover */
+ }
