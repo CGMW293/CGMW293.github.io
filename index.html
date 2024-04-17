@@ -26,12 +26,15 @@
             position: relative;
             padding-top: 40px;
         }
-        /* Modified style for the Gallery div */
-        .gallery-container {
-            margin-left: 300px; /* Adjusts the left margin */
-            text-align: left; /* Overrides the body's text-align */
-            font-family: 'Arial', sans-serif; /* Custom font */
-            font-size: 75px; /* Custom font size */
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        html {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
         }
     </style>
 </head>
@@ -41,20 +44,9 @@
     <div id="Header">
         <h1>Welcome to CGMW293</h1> 
         <p style="margin-bottom: 300px;">Fix this later</p>
-        <div class="gallery-container"> <!-- Wrapped Gallery text in a div -->
-            <p>Gallery</p>
-        </div>
-    </div>
-    <div class="slider" style="margin-left: 10%;">
-        <div class="slides">
-            <img src="sources/lab1.png" alt="Image 1">
-            <img src="sources/lab2.png" alt="Image 2">
-            <img src="sources/lab3.jpg" alt="Image 3">
-        </div>
-        <button class="arrow left-arrow">&#10094;</button>
-        <button class="arrow right-arrow">&#10095;</button>
-    </div>
-    <script src="script.js"></script>
+        <a href="GalleryDir/gallery.html" id="/GalleryDir/gallery.html" class="hover-button">View Gallery</a>
+    
     <script src="particleSystem.js"></script>
+    <script src="galleryLinkEffects.js"></script>
 </body>
 </html>

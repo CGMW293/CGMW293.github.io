@@ -1,65 +1,3 @@
-/* Image slider container */
-.slider {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    padding-top: 50px; /* Add padding to create space for the text */
-    height: auto;
-    overflow: hidden;
-    border: 0px solid rgb(0, 0, 0);
-    box-shadow: 0 0px 0px rgba(99, 95, 95, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-
-/* Container for slides */
-.slides {
-    display: flex;
-    transition: transform 0.5s ease;
-    min-width: 100%; /* Ensure it covers the full area of .slider */
-}
-
-/* Styling for each image */
-.slides img {
-    max-width: 100%; /* Maximum width of images */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Display as block to avoid extra space */
-    margin: auto; /* Center images horizontally */
-}
-
-/* Styling for navigation arrows */
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 10; /* Make sure arrows are visible on top of images */
-}
-
-.left-arrow {
-    left: 10px;
-}
-
-.right-arrow {
-    right: 10px;
-}
-
-.slider:hover .arrow {
-    opacity: 0.7;
-}
-
-
-
 
 /* General page style */
 html, body {
@@ -75,6 +13,7 @@ html, body {
     top: 0;
     left: 0;
     z-index: 0; /* Set z-index to 0 */
+    pointer-events: none;
 }
 
 /* Style for the content below the image */
@@ -96,3 +35,64 @@ html, body {
  .movable:hover {
     left: 100px; /* Move 100px to the right on hover */
  }
+
+ .hover-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hover-button:hover {
+    background-color: white;
+    color: rgb(119, 119, 119);
+}
+
+.media-preview {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.media-preview img, .media-preview video {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 8px; /* Optional: adds rounded corners */
+}
+
+.media-slider {
+    width: 100%;
+    max-width: 500px; /* Set a max-width for the slider */
+    height: 300px; /* Set a fixed height for the slider */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    object-fit: cover; /* Ensures media covers the area well */
+    align-items: center; /* Center aligns items vertically */
+    justify-content: center; /* Center aligns items horizontally */
+    display: flex;
+}
+
+.slide img, .slide video {
+    width: 100%; /* Ensures images and videos are not wider than the slide */
+    height: 100%; /* Ensures images and videos fill the height of the slide */
+    object-fit: cover; /* Prevents distortion and maintains aspect ratio */
+}
+
+.slide.active {
+    display: flex; /* Flex to align child img/video */
+}
+
