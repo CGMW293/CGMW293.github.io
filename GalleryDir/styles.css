@@ -1,34 +1,49 @@
 body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    background: black;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+}
+
+#space {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f0f0f0;
+    z-index: 0;
 }
 
-.grid-container {
+.gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 40px; /* Increased gap for better spacing between items */
     padding: 20px;
-    width: 90%;
-    max-width: 1200px;
-}
-
-.grid-item {
-    background: white;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.grid-item img, .grid-item video {
+    margin: auto;
     width: 100%;
-    height: auto;
 }
 
-video {
-    max-height: 500px; /* Limit video height */
+.gallery-item {
+    width: 100%;
+    height: auto; /* Allows dynamic height */
+    overflow: hidden;
+    display: block; /* Changes from flex to block for better control over flow */
+    position: relative;
+    cursor: pointer;
+    text-align: center; /* Aligns the caption text */
+}
+
+.gallery-item img, .gallery-item iframe {
+    max-width: 100%;
+    max-height: 400px; /* Fixes max height for better uniformity */
+    object-fit: cover;
+}
+
+figcaption {
+    color: #FFF;
+    font-size: 16px; /* Suitable font size for captions */
+    padding: 8px 0; /* Padding for spacing around text */
 }

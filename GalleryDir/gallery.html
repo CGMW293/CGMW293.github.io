@@ -3,24 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Grid Gallery</title>
+    <title>Portfolio Gallery</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"> 
 </head>
 <body>
-    <div class="grid-container">
-        <!-- Example section for images -->
-        <div class="grid-item">
-            <img src="sources/lab1.png" alt="Description of image">
+    <canvas id="space"></canvas>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="sources/typeshit.jpg" alt="CSGO">
+            <figcaption>The Gentleman</figcaption>
         </div>
-        <!-- Example section for videos -->
-        <div class="grid-item">
-            <iframe width="380" height="315" src="https://www.youtube.com/embed/_uYjk9UmlmQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-    
+        <div class="gallery-item">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/_uYjk9UmlmQ" frameborder="0" allowfullscreen></iframe>
+            <figcaption>China</figcaption>
         </div>
+        <div class="gallery-item">
+            <img src="sources/fallout.png" alt="Laboratory1">
+            <figcaption>The 254th NCR battalion</figcaption>
+        </div>
+
     </div>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="sources/lab3.jpg" alt="Laboratory2">
+            <figcaption>one more</figcaption>
+        </div>
 
-    <script src="script.js"></script>
+
+    </div>
+    
+
+    <script src="particleSystem.js"></script>
+    <script src="galleryScript.js"></script>
 </body>
 </html>
