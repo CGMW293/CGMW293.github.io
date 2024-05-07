@@ -1,5 +1,7 @@
 const canvas = document.getElementById('space');
+canvas.style.backgroundColor = 'black'; // <-- Added line here
 const ctx = canvas.getContext('2d');
+
 
 let w = canvas.width = window.innerWidth;
 let h = canvas.height = window.innerHeight;
